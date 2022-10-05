@@ -31,10 +31,4 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
-
-    public static void main(String[] args) {
-        Item item = new Item();
-        Item itemone = new Item("AMD Ryzen");
-        Item itemtwo = new Item("AMD Ryzen 7 3700X", 12);
-    }
 }

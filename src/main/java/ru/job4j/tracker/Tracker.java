@@ -33,15 +33,15 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        int sizecoppy = 0;
+        int count = 0;
         Item[] rsl = new Item[size];
         for (int index = 0; index < size; index++) {
             if (items[index].getName().equals(key)) {
-                rsl[sizecoppy] = items[index];
-                sizecoppy++;
+                rsl[count] = items[index];
+                count++;
             }
         }
-        return Arrays.copyOf(rsl, sizecoppy);
+        return Arrays.copyOf(rsl, count);
     }
 
     public boolean replace(int id, Item item) {

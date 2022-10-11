@@ -1,9 +1,11 @@
 package ru.job4j.oop;
 
 public class Freshman extends Student {
-    Freshman freshman = new Freshman();
+    public static void main(String[] args) {
+        Freshman freshman = new Freshman();
 
-    Student stud = freshman;
+        Student stud = freshman;
 
-    Object obj = freshman;
+        Object obj = freshman;
+    }
 }

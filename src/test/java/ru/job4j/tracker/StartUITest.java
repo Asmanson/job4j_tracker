@@ -2,8 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class StartUITest {
     @Test

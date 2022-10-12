@@ -4,6 +4,7 @@ public class Bus implements Transport {
 
     @Override
     public void drow() {
+        System.out.println("МАЗ");
     }
 
     @Override

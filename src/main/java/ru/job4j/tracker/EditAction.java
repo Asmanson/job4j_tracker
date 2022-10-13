@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 public class EditAction implements UserAction {
-
     private final Output out;
 
     public EditAction(Output out) {
@@ -24,7 +23,6 @@ public class EditAction implements UserAction {
         } else {
             out.println("Ошибка замены заявки.");
         }
-
-return true;
+        return true;
     }
 }

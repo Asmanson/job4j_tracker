@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 public class DeleteAction implements UserAction {
-
     private final Output out;
 
     public DeleteAction(Output out) {
@@ -22,7 +21,6 @@ public class DeleteAction implements UserAction {
         } else {
             out.println("Ошибка удаления заявки.");
         }
-
-return true;
+        return true;
     }
 }

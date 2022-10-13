@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 public class FindIdAction implements UserAction {
-
     private final Output out;
 
     public FindIdAction(Output out) {
@@ -23,7 +22,6 @@ public class FindIdAction implements UserAction {
         } else {
             out.println("Заявка с введенным id: " + id + " не найдена.");
         }
-
         return true;
     }
 }

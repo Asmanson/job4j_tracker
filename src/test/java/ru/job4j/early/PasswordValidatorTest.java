@@ -19,50 +19,62 @@ public class PasswordValidatorTest {
 
     @Test
     public void whenPasswordLength() {
-        String expected = "Длина пароля меньше 8 или больше 32";
-        String password = "ytr";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("q1E+");
+                });
+        assertThat(exception.getMessage()).isEqualTo("Длина пароля меньше 8 или больше 32");
     }
 
     @Test
     public void whenPasswordSubstrings() {
-        String expected = "Пароль содержит недопустимые подстроки";
-        String password = "ytr12TyqweRTy";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("ytr12TyqweRTy");
+                });
+        assertThat(exception.getMessage()).isEqualTo("Пароль содержит недопустимые подстроки");
     }
 
     @Test
     public void whenPasswordNotUpper() {
-        String expected = "В пароле отсутствуют символы в верхнем регистре";
-        String password = "qweqdfdfjh12376+";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("qweqdfdfjh12376+");
+                });
+        assertThat(exception.getMessage()).isEqualTo("В пароле отсутствуют символы в верхнем регистре");
     }
 
     @Test
     public void whenPasswordNotLower() {
-        String expected = "В пароле отсутствуют символы в нижнем регистре";
-        String password = "YERYRT126536+";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("YERYRT126536+");
+                });
+        assertThat(exception.getMessage()).isEqualTo("В пароле отсутствуют символы в нижнем регистре");
     }
 
     @Test
     public void whenPasswordNotNumber() {
-        String expected = "В пароле отсутствуют цифры";
-        String password = "YERYRTwe+";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("YERYRTer+");
+                });
+        assertThat(exception.getMessage()).isEqualTo("В пароле отсутствуют цифры");
     }
 
     @Test
     public void whenPasswordNotSpec() {
-        String expected = "В пароле отсутствуют спецсимволы";
-        String password = "YERYRTwe23";
-        String out = PasswordValidator.validate(password);
-        Assert.assertEquals(expected, out);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    PasswordValidator.validate("YERYRTwe23");
+                });
+        assertThat(exception.getMessage()).isEqualTo("В пароле отсутствуют спецсимволы");
     }
 
     @Test

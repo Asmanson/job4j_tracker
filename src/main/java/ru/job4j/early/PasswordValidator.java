@@ -7,53 +7,54 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Пустой пароль");
         }
         if (password.length() < 8 || password.length() > 32) {
-            return "Длина пароля меньше 8 или больше 32";
+            throw new IllegalArgumentException("Длина пароля меньше 8 или больше 32");
         }
-        if (password.toLowerCase().contains("qwerty") || password.toLowerCase().contains("12345")
-                || password.toLowerCase().contains("password") || password.toLowerCase().contains("admin")
-                || password.toLowerCase().contains("user")) {
-            return "Пароль содержит недопустимые подстроки";
+        String[] specsymbol = new String[] {"qwerty", "12345", "password", "admin", "user"};
+        for (int index = 0; index < specsymbol.length; index++) {
+            if (password.toLowerCase().contains(specsymbol[index])) {
+                throw new IllegalArgumentException("Пароль содержит недопустимые подстроки");
+            }
         }
         char[] arraypassword = password.toCharArray();
         boolean result = true;
-        for (char x:arraypassword) {
+        for (char x : arraypassword) {
             if (Character.isUpperCase(x)) {
                 result = false;
                 break;
             }
         }
         if (result) {
-            return "В пароле отсутствуют символы в верхнем регистре";
+            throw new IllegalArgumentException("В пароле отсутствуют символы в верхнем регистре");
         }
         result = true;
-        for (char x:arraypassword) {
+        for (char x : arraypassword) {
             if (Character.isLowerCase(x)) {
                 result = false;
                 break;
             }
         }
         if (result) {
-            return "В пароле отсутствуют символы в нижнем регистре";
+            throw new IllegalArgumentException("В пароле отсутствуют символы в нижнем регистре");
         }
         result = true;
-        for (char x:arraypassword) {
+        for (char x : arraypassword) {
             if (Character.isDigit(x)) {
                 result = false;
                 break;
             }
         }
         if (result) {
-            return "В пароле отсутствуют цифры";
+            throw new IllegalArgumentException("В пароле отсутствуют цифры");
         }
         result = true;
-        for (char x:arraypassword) {
+        for (char x : arraypassword) {
             if (!Character.isDigit(x) && !Character.isAlphabetic(x)) {
                 result = false;
                 break;
             }
         }
         if (result) {
-            return "В пароле отсутствуют спецсимволы";
+            throw new IllegalArgumentException("В пароле отсутствуют спецсимволы");
         }
         return "Пароль успешно создан";
     }

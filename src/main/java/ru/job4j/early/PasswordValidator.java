@@ -10,8 +10,8 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Длина пароля меньше 8 или больше 32");
         }
         String[] specsymbol = new String[] {"qwerty", "12345", "password", "admin", "user"};
-        for (int index = 0; index < specsymbol.length; index++) {
-            if (password.toLowerCase().contains(specsymbol[index])) {
+        for (String passwordindex : specsymbol) {
+            if (password.toLowerCase().contains(passwordindex)) {
                 throw new IllegalArgumentException("Пароль содержит недопустимые подстроки");
             }
         }

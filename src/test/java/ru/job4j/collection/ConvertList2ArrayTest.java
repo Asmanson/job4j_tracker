@@ -7,6 +7,7 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConvertList2ArrayTest {
+
     @Test
     public void when7ElementsThen9() {
         int[][] result = ConvertList2Array.toArray(

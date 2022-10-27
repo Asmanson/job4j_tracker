@@ -22,4 +22,36 @@ public class ItemTest {
         );
         Assert.assertEquals(items, expected);
     }
+
+    @Test
+    public void sortItemsAscByName() {
+        List<Item> items = Arrays.asList(
+                new Item(4, "Fix bugs"),
+                new Item(3, "Impl task"),
+                new Item(5, "Reboot server")
+        );
+        items.sort(new ItemAscByName());
+        List<Item> expected = Arrays.asList(
+                new Item(4, "Fix bugs"),
+                new Item(3, "Impl task"),
+                new Item(5, "Reboot server")
+        );
+        Assert.assertEquals(items, expected);
+    }
+
+    @Test
+    public void sortItemDescByName() {
+        List<Item> items = Arrays.asList(
+                new Item(4, "Fix bugs"),
+                new Item(3, "Impl task"),
+                new Item(5, "Reboot server")
+        );
+        items.sort(new ItemDescByName());
+        List<Item> expected = Arrays.asList(
+                new Item(5, "Reboot server"),
+                new Item(3, "Impl task"),
+                new Item(4, "Fix bugs")
+        );
+        Assert.assertEquals(items, expected);
+    }
 }

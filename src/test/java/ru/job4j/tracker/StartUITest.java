@@ -87,32 +87,6 @@ public class StartUITest {
     }
 
     @Test
-    public void whenFindNameItemTestOutputIsSuccessfully() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Item one = tracker.add(new Item("test1"));
-        Input in = new StubInput(
-                new String[] {"0", "test1", "1"}
-        );
-        List<UserAction> actions =  new ArrayList<>();
-        actions.add(new FindIdAction(out));
-        actions.add(new ExitAction(out));
-        new StartUI(out).init(in, tracker, actions);
-        String ln = System.lineSeparator();
-        assertThat(out.toString()).isEqualTo(
-                "Menu:" + ln
-                        + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Find items by name ===" + ln
-                        + one + ln
-                        + "Menu:" + ln
-                        + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
-        );
-    }
-
-    @Test
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(

@@ -7,15 +7,15 @@ public class ScopeInside {
         int[] number = {1, 2, 3};
         int total = 0;
         for (int num : number) {
+            int tot = total;
             total = add(
-                    () -> num,
-                    total
+                    () -> tot + num
             );
         }
         System.out.println(total);
     }
 
-    private static Integer add(Supplier<Integer> calc, int total) {
-        return total + calc.get();
+    private static Integer add(Supplier<Integer> calc) {
+        return calc.get();
     }
 }

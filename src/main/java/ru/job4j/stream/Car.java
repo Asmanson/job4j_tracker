@@ -3,6 +3,7 @@ package ru.job4j.stream;
 import java.time.LocalDate;
 
 public class Car {
+
     private String brand;
 
     private String model;

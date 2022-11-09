@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.Optional;
 
 public class College {
+
     private final Map<Student, Set<Subject>> students;
 
     public College(Map<Student, Set<Subject>> students) {

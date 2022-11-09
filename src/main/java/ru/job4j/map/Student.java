@@ -3,6 +3,7 @@ package ru.job4j.map;
 import java.util.Objects;
 
 public class Student {
+
     private String name;
 
     private String account;

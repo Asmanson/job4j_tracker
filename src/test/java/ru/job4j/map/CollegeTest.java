@@ -9,6 +9,7 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CollegeTest {
+
     @Test
     public void whenAccountIsOptionalEmpty() {
         Map<Student, Set<Subject>> students = Map.of(

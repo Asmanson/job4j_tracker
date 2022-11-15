@@ -26,7 +26,7 @@ public class Analyze {
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
         return stream
                 .flatMap(s -> s.subjects().stream())
-                .collect(Collectors.groupingBy(Subject::name, LinkedHashMap::new,
+                .collect(Collectors.groupingBy(Subject::name,
                         Collectors.averagingDouble(Subject::score)))
                 .entrySet()
                 .stream()
